@@ -31,10 +31,6 @@ export async function POST(req: Request) {
 			console.log('invoice.paid');
 			const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
 
-			if (!session?.metadata?.userId) {
-				return new Response('User not found', { status: 400 });
-			}
-
 			await recurringSubscriptionDb(subscription);
 		}
 
