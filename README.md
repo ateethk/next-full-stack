@@ -36,6 +36,28 @@ Configure Stripe CLI before running
 nom run dev
 ```
 
+# Environment Variables
+
+Environment variables that are required. Clerk keys can be found in Clerk dashboard after creating account, Clerk webhook key can be found after creating a webhook in Clerk. Stripe keys can be found in Stripe after creating an account.
+
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+CLERK_WEBHOOK_SECRET=
+
+NEXT_PUBLIC_CLERK_SIGN_IN_URL/sign-up
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+
+DATABASE_URL=
+
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
