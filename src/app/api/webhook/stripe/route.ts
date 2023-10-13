@@ -46,13 +46,13 @@ export async function POST(req: Request) {
 			await changeSubscriptionDb(subscription);
 		}
 
-        // EVENT: Subscription Canceled
-        if (event.type === 'customer.subscription.deleted') {
-            console.log('customer.subscription.deleted');
-            const subscription = await stripe.subscriptions.retrieve(session.id as string);
+		// EVENT: Subscription Canceled
+		if (event.type === 'customer.subscription.deleted') {
+			console.log('customer.subscription.deleted');
+			const subscription = await stripe.subscriptions.retrieve(session.id as string);
 
-            await cancelSubscriptionDb(subscription);
-        }
+			await cancelSubscriptionDb(subscription);
+		}
 
 		return new Response(null, { status: 200 });
 	} catch (error) {
