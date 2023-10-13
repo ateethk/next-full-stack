@@ -6,14 +6,15 @@ Integrations include:
 - Postgres
 - Prisma
 - Stripe Subscriptions
+- Stripe Checkout
 - Clerk Auth
 - Tanstack Query
-- Web hooks
+- Webhooks
 - Sample API Routes
 
 # Running in Dev
 
-## Run ngrok for Clerk
+## Run ngrok for Clerk webhooks
 
 ```bash
 hgrok http 3000
@@ -21,7 +22,7 @@ hgrok http 3000
 
 Update Clerk webhook to reach ngrok url
 
-## Run Stripe 
+## Run Stripe CLI for webhooks
 
 ```bash
 stripe listen --forward-to localhost:3000/api/webhook/stripe

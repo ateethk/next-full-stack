@@ -1,8 +1,6 @@
-import { auth, currentUser } from '@clerk/nextjs';
-import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs';
+import { NextRequest } from 'next/server';
 
-import prisma from '@/src/lib/db';
-import { stripe } from '@/src/lib/stripe';
 import { createStripeCheckoutSession } from './service';
 
 export async function GET(req: NextRequest) {
@@ -12,8 +10,8 @@ export async function GET(req: NextRequest) {
 			return new Response('Unauthorized', { status: 401 });
 		}
 
-        const searchParams = req.nextUrl.searchParams;
-        const priceId = searchParams.get('priceId') as string;
+		const searchParams = req.nextUrl.searchParams;
+		const priceId = searchParams.get('priceId') as string;
 
 		const stripeSession = await createStripeCheckoutSession(userId, priceId);
 		return new Response(JSON.stringify({ url: stripeSession }), {

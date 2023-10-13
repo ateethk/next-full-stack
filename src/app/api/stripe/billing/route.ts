@@ -3,7 +3,7 @@ import { auth } from '@clerk/nextjs';
 import { stripe } from '@/src/lib/stripe';
 import { getUserDb } from '../../user/db';
 
-export async function GET(req: Request) {
+export async function GET() {
 	try {
 		const { userId } = auth();
 		if (!userId) {
